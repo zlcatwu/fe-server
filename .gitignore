@@ -1,0 +1,17 @@
+# Visual Studio Code configs
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+**/node_modules/**
+
+# Other lock files
+package-lock.json
+yarn.lock
