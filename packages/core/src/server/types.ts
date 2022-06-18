@@ -1,11 +1,13 @@
 import type {ServerOptions} from 'https';
-import type {FastifyRequest, FastifyReply} from 'fastify';
+import type {FastifyRequest, FastifyReply, FastifyInstance} from 'fastify';
 
-export type ServeParams = {
-  port: number;
-  handler: ServeHandler;
-  extraHandlerParams?: Record<string | number | symbol, any>;
+export type CreateServeParams = {
   https?: ServerOptions;
+};
+export type RegisterServeHandlerParams<T = Record<string | number | symbol, unknown>> = {
+  fastify: FastifyInstance;
+  handler: ServeHandler;
+  extraHandlerParams?: T;
 };
 export type ServeHandler =
   (params: ServeHandlerParams) => void | Promise<void>

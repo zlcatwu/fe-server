@@ -14,7 +14,14 @@
     "block-spacing": "error",
     "arrow-spacing": "error",
     "keyword-spacing": "error",
-    "space-infix-ops": "error"
+    "space-infix-ops": "error",
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "ignoreStrings": true
+      }
+    ]
   },
   "ignorePatterns": ["lib"]
 }
