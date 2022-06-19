@@ -7,6 +7,7 @@
   "scripts": {
     "test:unit": "jest",
     "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./__tests__/jest.e2e.config.js",
     "build": "tsc -p tsconfig.json",
     "fix:lint": "eslint src --ext .ts --fix"
   },
