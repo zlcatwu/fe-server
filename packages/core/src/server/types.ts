@@ -1,8 +1,9 @@
 import type {ServerOptions} from 'https';
-import type {FastifyRequest, FastifyReply, FastifyInstance} from 'fastify';
+import type {FastifyRequest, FastifyReply, FastifyInstance, FastifyLoggerOptions} from 'fastify';
 
 export type CreateServeParams = {
   https?: ServerOptions;
+  logger?: boolean | FastifyLoggerOptions;
 };
 export type RegisterServeHandlerParams<T = Record<string | number | symbol, unknown>> = {
   fastify: FastifyInstance;

@@ -7,6 +7,7 @@ export const createServer = (params: CreateServeParams) => {
   // eslint-disable-next-line new-cap
   const fastify = Fastify({
     https: params.https ? params.https : null,
+    logger: params.logger,
   });
   return fastify;
 };

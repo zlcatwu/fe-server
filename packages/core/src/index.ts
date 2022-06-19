@@ -11,6 +11,7 @@ export default async (config: FeServerConfig) => {
   const handledPlugins = config.plugins.map(plugin.preHandle);
   const fastify = server.createServer({
     https: config.https,
+    logger: config.logger,
   });
   const initResult = await plugin.init({
     fastify,

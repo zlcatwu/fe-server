@@ -11,8 +11,8 @@ import type {Plugin} from 'fe-server-core';
 describe('fe-server-plugin-proxy', () => {
   type RequestConfig = {
     port: number;
-      host: string;
-      baseURL: string;
+    host: string;
+    baseURL: string;
   };
   const targetServers: {
     server: FastifyInstance;
