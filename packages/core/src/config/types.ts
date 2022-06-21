@@ -3,7 +3,8 @@ import {ServerOptions} from 'https';
 import {Plugin} from '../plugin';
 
 export type FeServerConfig = {
-  port: number;
+  port?: number;
+  host?: string;
   https?: ServerOptions;
   plugins?: Plugin[];
   logger?: boolean | FastifyLoggerOptions;

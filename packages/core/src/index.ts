@@ -1,4 +1,5 @@
 import {FeServerConfig} from './config/types';
+import {mergeConfig} from './config';
 
 export * from './server';
 export * from './plugin';
@@ -7,11 +8,12 @@ import * as server from './server';
 import * as plugin from './plugin';
 
 export default async (config: FeServerConfig) => {
+  const mergedConfig = await mergeConfig(config);
   const storage = plugin.createPluginStorage();
   const handledPlugins = config.plugins.map(plugin.preHandle);
   const fastify = server.createServer({
     https: config.https,
-    logger: config.logger,
+    logger: mergedConfig.logger,
   });
   const initResult = await plugin.init({
     fastify,
@@ -32,7 +34,8 @@ export default async (config: FeServerConfig) => {
     },
   });
   await fastify.listen({
-    port: config.port,
+    host: mergedConfig.host,
+    port: mergedConfig.port,
   });
   return fastify;
 };
